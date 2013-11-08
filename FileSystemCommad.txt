@@ -1,5 +1,6 @@
 tree 命令(commad):
 ==============================
+LISTING OPTIONS:
 1.tree -a
 显示全部目录和文件，包括隐藏的
 example:
@@ -73,3 +74,214 @@ $rm -r directory/
 3.$tree -l
 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录
 ==============================
+4.tree -f
+显示全部的路径名
+example:
+$ tree -f test/
+test
+├── test/directory
+└── test/link -> .hide/
+
+2 directories, 0 files
+==============================
+5.tree -x
+将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。
+example:
+$tree -x test/
+test/
+├── directory
+├── link -> .hide/
+└── windowsMedia -> /media/zly/软件/Media/
+==============================
+6.tree -l level(number)
+最大显示的目录树中的深度
+example:
+$ tree -L 1 /
+/
+├── bin
+├── boot
+├── cdrom
+├── Desktop
+├── dev
+├── etc
+├── home
+├── lib
+├── lib64
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin
+├── selinux
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+23 directories, 0 files
+==============================
+7.$tree -P
+只显示符合范本样式的文件或目录名称
+$ tree -P test/
+.
+└── test
+    ├── another
+    ├── directory
+    └── one
+
+4 directories, 0 files
+==============================
+8.$tree -p
+显示权限位
+$ tree -p test/
+test/
+├── [drwxrwxr-x]  another
+├── [drwxrwxr-x]  directory
+├── [lrwxrwxrwx]  link -> .hide/
+├── [drwxrwxr-x]  one
+└── [lrwxrwxrwx]  windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+FILE OPTIONS:
+9.  $ tree -Q
+文件名加双引号
+$ tree -Q test/
+"test/"
+├── "another"
+├── "directory"
+├── "link" -> ".hide/"
+├── "one"
+└── "windowsMedia" -> "/media/zly/软件/Media/"
+==============================
+10.  $ tree -s
+打印文件的大小
+$ tree -s test/
+test/
+├── [       4096]  another
+├── [       4096]  directory
+├── [          6]  link -> .hide/
+├── [       4096]  one
+└── [         24]  windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+11.  $ tree -h
+以可读方式显示文件大小
+$ tree -h test/
+test/
+├── [4.0K]  another
+├── [4.0K]  directory
+├── [   6]  link -> .hide/
+├── [4.0K]  one
+└── [  24]  windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+12.  $tree -D
+显示文件日期
+$tree -D test/
+test/
+├── [Nov  8 14:11]  another
+├── [Nov  8 11:40]  directory
+├── [Nov  8 11:48]  link -> .hide/
+├── [Nov  8 14:11]  one
+└── [Nov  8 13:46]  windowsMedia -> /media/zly/软件/Media/
+==============================
+13.tree --inodes test/
+显示文件inode号
+tree --inodes test/
+test/
+├── [1856454]  another
+├── [1856440]  directory
+├── [1856441]  link -> .hide/
+├── [1856455]  one
+└── [  22973]  windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+14.$ tree --device test/
+打印的文件或目录所属的设备号
+tree --device test/
+test/
+├── [2056]  another
+├── [2056]  directory
+├── [2056]  link -> .hide/
+├── [2056]  one
+└── [2053]  windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+15.$ tree --du
+递归显示文件夹大小
+$ tree --du test/../
+test/../
+├── [       5660]  FileSystemCommad.txt
+├── [         29]  README.md
+└── [      16414]  test
+    ├── [       4096]  another
+    ├── [       4096]  directory
+    ├── [          6]  link -> .hide/
+    ├── [       4096]  one
+    └── [         24]  windowsMedia -> /media/zly/软件/Media/
+
+       26199 bytes used in 6 directories, 2 files
+==============================
+SORTING OPTIONS(排序选项)
+16.  $ tree -v
+排序输出
+$ tree -v test/
+test/
+├── another
+├── directory
+├── link -> .hide/
+├── one
+└── windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+17.  $ tree -r
+反向排序，注意看前一例顺序正好相反
+$ tree -r test/
+test/
+├── windowsMedia -> /media/zly/软件/Media/
+├── one
+├── link -> .hide/
+├── directory
+└── another
+
+==============================
+18.  $ tree -t
+以修改时间为序
+$ tree -t test/
+test/
+├── one
+├── another
+├── windowsMedia -> /media/zly/软件/Media/
+├── link -> .hide/
+└── directory
+
+5 directories, 0 files
+==============================
+GRAPHICS OPTIONS(图形界面选项)
+19.  $ tree -i
+不显示图形线，与-f一起使用效果甚佳
+$ tree -i test/
+test/
+another
+directory
+link -> .hide/
+one
+windowsMedia -> /media/zly/软件/Media/
+
+5 directories, 0 files
+==============================
+20.
+-A -S -n -c都是控制图形界面的
+tree 命令完
+==============================
+
