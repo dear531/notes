@@ -1,0 +1,75 @@
+tree 命令(commad):
+==============================
+1.tree -a
+显示全部目录和文件，包括隐藏的
+example:
+$ tree -a
+.
+ ├── FileSystemCommad.txt
+ ├── .FileSystemCommad.txt.swp
+ ├── .git
+ │   ├── branches
+ │   ├── COMMIT_EDITMSG
+ │   ├── config
+ │   ├── description
+ │   ├── FETCH_HEAD
+ │   ├── HEAD
+ │   ├── hooks
+ │   │   ├── applypatch-msg.sample
+ │   │   ├── commit-msg.sample
+ │   │   ├── post-update.sample
+ │   │   ├── pre-applypatch.sample
+ │   │   ├── pre-commit.sample
+ │   │   ├── prepare-commit-msg.sample
+ │   │   ├── pre-rebase.sample
+ │   │   └── update.sample
+ │   ├── index
+ │   ├── info
+ │   │   └── exclude
+ │   ├── logs
+ │   │   ├── HEAD
+ │   │   └── refs
+ │   │       ├── heads
+ │   │       │   └── master
+ │   │       └── remotes
+ │   │           ├── github
+ │   │           │   └── master
+ │   │           └── origin
+ │   ├── objects
+ │   │   ├── 32
+ │   │   │   └── 9472209aa5405d28a4b64533130b19e347dc44
+ │   │   ├── 5e
+ │   │   │   └── 328c3da29d6df82654d1ed981d1805016cb2c6
+ │   │   ├── 79
+ │   │   │   └── 73ab3e47e556662923c9ed56411b59de938f73
+ │   │   ├── 8b
+ │   │   │   └── 137891791fe96927ad78e64b0aad7bded08bdc
+ │   │   ├── info
+ │   │   └── pack
+ │   ├── ORIG_HEAD
+ │   └── refs
+ │       ├── heads
+ │       │   └── master
+ │       ├── remotes
+ │       │   ├── github
+ │       │   │   └── master
+ │       │   └── origin
+ │       └── tags
+ └── README.md
+
+23 directories, 28 files
+==============================
+2.tree -d
+只显示目录
+example:
+mkdir directory
+$tree -d
+.
+└── directory
+
+1 directory
+$rm -r directory/
+==============================
+3.$tree -l
+如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录
+==============================
